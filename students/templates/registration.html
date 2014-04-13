@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Регистрация
+{% endblock %}
+
+{% block content %}
+<div align="center">
+<br>
+<br>
+<h1>Регистрация</h1>
+<!------------------>
+<div class="pad_center">
+
+{% if form.errors %}
+<p style="color: red;">
+Пожалуйста, исправьте ошибки
+</p>
+{% endif %}
+
+<form action="" method="post">  {% csrf_token %}
+
+<div style="padding-right:50px">
+<table>
+{{ form.as_table }}
+</table>
+</div>
+
+<div class="btn_position"> <input type="submit"  class="btn btn-primary" value="Регистрация"></div>
+</form>
+
+</div>
+
+</div>
+<!------------------>
+{% endblock %}

@@ -1,0 +1,124 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Список групп
+{% endblock %}
+
+{% block content %}
+
+<br>
+<br>
+<h1>Список групп</h1>
+<br>
+<!-------------------------->
+<div class="pad_center">
+<table class="table">
+
+<tr>
+<td>Название группы</td>
+<td>Староста</td>
+<td>Количество студентов в группе</td>
+
+<td> </td>
+<td> </td>
+</tr>
+
+{% for group in groups_list %}
+<tr>
+
+<td>
+{% if group.students_set.count == 0 %}
+{{ group.group_name }}   
+{%else%}
+<a href="{% url 'students_list' pk_group=group.id %}">{{ group.group_name }} </a>
+{%endif%}
+</td> 
+
+
+<td>
+{% if group.students_set.count == 0 %}
+Старосты пока что нет  
+{%else%}
+{{ group.headman }}
+{%endif%}
+</td>
+
+<td> {{ group.students_set.count }} </td>
+
+<td> 
+{% if  group.students_set.count > 0 %}
+<input type="button"
+name="Редактировать" 
+class="btn btn-inverse btn-small"
+onclick="location.href='{% url 'now_used_group' pk=group.id %}'"
+   
+value="Редактировать"> 
+{% else %}
+<div style="padding-left:5px">
+ Редактировать
+</div> 
+{% endif %}
+
+</td>
+
+<td>
+<!----------------->
+{% if groups_list.count == 1 %}
+
+{%else%}
+<input type="button"
+name="Удалить" 
+class="btn btn-inverse btn-small"
+onclick="location.href='{% url 'del_group' pk_group=group.id %}'"
+value="Удалить"> 
+{%endif%}
+<!----------------->
+</td>
+
+</tr>
+{% endfor %}
+</table>
+
+<br>
+<input type="button"
+name="Создать группу" 
+class="btn btn-success"
+onclick="location.href='{% url 'create_group'%}'"
+value="Создать группу"> 
+
+<input type="button"
+name="Добавить студента" 
+class="btn btn-success"
+onclick="location.href='{% url 'add_student'%}'"
+value="Добавить студента"> 
+</div>
+<!-------------------------->
+<br>
+{% for group in groups_list %}
+{% if group.students_set.count == 0 %}
+{% ifchanged group.students_set.count %}
+<div align="left"> 
+<h5>
+В группе обязательно должно быть <br>
+определенное количество студентов.<br>
+Добавьте хотя бы одного студента в группу,<br>
+чтобы ссылки на детальное описание<br> 
+и редактирование группы стали активными.  
+</h5>
+</div>
+{% endifchanged %}
+{%endif%}
+{% endfor %}
+<!-------------------------->
+<div align="left" >
+<h5>
+{% if groups_list.count == 1 %}
+В картотеке осталась всего одна группа.<br>
+Поэтому невозможно ее удалить,<br>
+поскольку в ином случае <br>
+картотека будет полностью закрыта.
+{%endif%}
+ </h5>
+</div>
+<!-------------------------->
+{% endblock %}

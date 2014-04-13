@@ -1,0 +1,63 @@
+.photo
+{padding: 4px;
+border: 1px solid #ddd;
+border-radius: 4px;
+
+}
+
+.layer_photo {
+height: 160px; 
+width: 160px;
+margin-bottom:10px;
+margin-left:20px;
+}
+
+.mar
+{margin-left:20px;
+}
+
+.post_detail_qr_mar
+{margin-top:20px;
+}
+
+.post_detail_ footer
+{margin-bottom:30px;
+}
+
+.left_column_start
+{margin-top: 170px;
+}
+
+.column_search
+{padding-top: 100px;
+}
+
+.column_red_prof
+{padding-top: 80px;
+}
+.column_left_img_of_red_prof
+{padding-top: 30px;
+}
+
+.min_for_span6
+{min-width: 460px;
+}
+
+
+.left_img
+{float:right; /* Выравнивание по левому краю */
+margin: 10px 20px  ; /* Отступы вокруг картинки */
+}
+
+textarea
+{min-width: 460px;
+min-height: 200px;
+}
+
+table
+{border-spacing: 7px 20px;
+} /* Расстояние между ячейками */
+
+td
+{padding-bottom: 4px;
+}

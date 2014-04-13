@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8" />
+
+<title>
+{% block title%}
+Система учета студентов 
+{% endblock %}
+</title>
+
+<link href="{{STATIC_URL}}bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="{{STATIC_URL}}bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+<link href="{{STATIC_URL}}bootstrap/css/new1.css" rel="stylesheet">
+<!--[if lt IE 9]>
+<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<script src="http:/code.jquery.com/jquery-latest.js"></script>
+<script src="{{STATIC_URL}}bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+
+<style>
+body {background:#d5c6b5;
+padding-top: 80px; 
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="navbar navbar-inverse navbar-fixed-top">
+<div class="navbar-inner">
+<div class="container" >
+
+<div class="brand" >
+<a href="{% url 'start' %}"> На главную </a>
+</div>
+<!------------------------------------------------------>
+<div align="right" style="padding-top:7px" >
+
+<form class="form-inline">
+{% if user.is_authenticated %}
+<input type="button" name="Список групп" " class="btn btn-inverse" onclick="location.href='{%url 'groups_list'%}'"  value="Список групп">
+
+<input type="button" name="Список настроек проекта" " class="btn btn-inverse" onclick="location.href='{%url 'settings_list'%}'"  value="Список настроек проекта">
+<input type="button" name="Выйти"  class="btn btn-inverse" onclick="location.href='{%url 'logout'%}'" value="Выйти">
+{% else %}
+<input type="button" name="Регистрация" " class="btn btn-inverse" onclick="location.href='{%url 'registration'%}'"  value="Регистрация">
+
+{% endif %}
+</form>
+
+</div>
+<!---------------------------------------------------------->
+
+</div>
+</div>
+</div>
+<!-------------------------------------->
+<div class="container" style="margin-bottom:100px"  align="center">
+{% if user.is_authenticated %}
+<div class="row">
+
+<div class="span4" >
+<div align="left"><p>Вы зашли как {{ user.username }}</p> </div>
+</div>
+
+</div>
+<!----------->
+
+{% else %}
+<div align="left">
+<p>Вы не зашли в систему </p>
+</div>
+{% endif %}
+
+<!-------------------------------------->
+{% block content %}
+
+{% endblock %}
+
+<!--  end container -->
+</div>
+<!-------------------------------------------->
+
+<div  class="navbar navbar-fixed-bottom">
+<div class="navbar-inner" style="background: rgba(114, 111, 108, 0.8);">
+
+<div class="container">
+Система учета студентов
+</div>
+
+</div>
+</div>
+<!-------------------------------------------->
+</body>
+</html>

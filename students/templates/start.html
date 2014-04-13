@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block title %}
+Вход в систему
+{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+<br>
+<h5 style="padding-top:80px ">
+На данный момент вы вошли в систему как {{ user.username }} <br><br>
+Вы можете   создавать/редактировать/удалять  информацию о группах и студентах.<br><br>
+Также вы имеете возможность просматривать техническую информацию о настройках и работе сайта.<br><br>
+Для дальнейшего использования сервиса воспользуйтесь верхней меню-панелью. 
+</h5>
+{% else %}
+<!------------------------------------------->
+<div align="center">
+<br>
+<br>
+<h1>Вход в систему</h1>
+<!------------------>
+<div class="pad_center" >
+<h4> {{error_start}} </h4>
+
+{% if form.errors %}
+<p style="color: red;">
+Пожалуйста, исправьте ошибки  
+</p>
+{% endif %}
+
+<form action="" method="post">  {% csrf_token %}
+
+<div style="padding-right:80px">
+<table>
+{{ form.as_table }}
+</table>
+</div>
+<div class="btn_position" > <input type="submit"  class="btn btn-primary" value="Вход"></div>
+</form>
+
+</div>
+<!------------------>
+</div>
+<!------------------------------------------->
+ {% endif %}
+{% endblock %}
+
+

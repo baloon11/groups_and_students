@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Создать группу
+{% endblock %}
+<!-------------------------------------------------->
+{% block content %}
+<div align="center">
+<br>
+<br>
+<h1>Создать группу</h1>
+
+<!-------------------------->
+<div class="pad_center">
+
+{% if form.errors %}
+<p style="color: red;">
+Пожалуйста, исправьте ошибки  
+</p>
+{% endif %}
+
+<form action="" method="post">  {% csrf_token %}
+<div style="padding-right:120px">
+<table>
+{{ form.as_table }}
+</table>
+</div>
+<div class="btn_position"> <input type="submit"  class="btn btn-primary" value="Создать группу"></div>
+</form>
+ 
+</div>
+<!-------------------------->
+</div>
+<!-------------------------------------------------->
+<br>
+
+<div align="left">
+<h5>
+
+После того, как в этой группе<br> 
+появятся  студенты - будет возможно <br>
+назначить старосту из них.  
+</h5>
+</div>
+
+{% endblock %}

@@ -1,0 +1,73 @@
+[
+{"pk": 1, "model": "st_and_gr.students",
+ "fields": {"group": 1,
+  "date_of_birth": " 23.05.1990", 
+  "student_id_number": 123487, 
+"full_name": "\u041f\u0430\u043d\u0442\u0435\u043b\u0435\u0435\u0432 \u041c\u0430\u043a\u0430\u0440 \u041d\u0438\u043a\u043e\u043b\u0430\u0435\u0432\u0438\u0447"}},
+
+{"pk": 2, "model": "st_and_gr.students",
+"fields": 
+  {"group": 1, "date_of_birth": "10.07.1991",
+  "student_id_number": 172285,
+  "full_name": "\u0422\u043a\u0430\u0447 \u0421\u0435\u043c\u0435\u043d \u0412\u0430\u0441\u0438\u043b\u044c\u0435\u0432\u0438\u0447"}},
+  
+{"pk": 3, "model": "st_and_gr.students", 
+  "fields":
+{"group": 2,
+ "date_of_birth": "17.10.1990", 
+ "student_id_number": 172214,
+  "full_name": "\u0418\u0432\u0430\u043d\u043e\u0432 \u0410\u043b\u0435\u043a\u0441\u0435\u0439 \u0414\u0438\u043c\u0438\u0442\u0440\u0438\u0435\u0432\u0438\u0447"}},
+
+
+{"pk": 4, "model": "st_and_gr.students", 
+"fields": {"group": 2,
+ "date_of_birth": "04.10.1990", 
+ "student_id_number": 172233,
+"full_name": "\u041f\u0435\u0442\u0440\u043e\u0432 \u041d\u0438\u043a\u043e\u043b\u0430\u0439 \u0418\u0433\u043d\u0430\u0442\u044c\u0435\u0432\u0438\u0447"}},
+
+{"pk": 5, "model": "st_and_gr.students", 
+"fields": {"group": 2, 
+"date_of_birth": "17.01.1991", 
+"student_id_number": 172255, 
+"full_name": "\u041d\u0438\u043a\u043e\u043b\u0430\u0435\u043d\u043a\u043e \u041d\u0438\u043a\u0438\u0444\u043e\u0440 \u0413\u0430\u0432\u0440\u0438\u043b\u043e\u0432\u0438\u0447"}},
+
+{"pk": 6, "model": "st_and_gr.students",
+"fields": {"group": 1,
+ "date_of_birth": "01.06.1991",
+"student_id_number": 172313,
+"full_name": "\u041c\u0435\u043b\u044c\u043d\u0438\u043a \u041e\u0441\u0442\u0430\u043f \u0410\u043d\u0434\u0440\u0435\u0435\u0432\u0438\u0447"}},
+
+{"pk": 1, "model": "st_and_gr.groups", 
+"fields": {"headman": 2,
+"group_name": "\u0433\u0440\u0443\u043f\u043f\u0430 1" }}, 
+
+{"pk": 2, "model": "st_and_gr.groups", 
+"fields": {"headman": 3, 
+"group_name": "\u0433\u0440\u0443\u043f\u043f\u0430 2" }}, 
+
+{"pk": 1, "model": "st_and_gr.info_about_models", 
+"fields": 
+{"model_create": "\u043d\u0435\u0442 \u0434\u0430\u043d\u043d\u044b\u0445", 
+"model_delete": "\u043d\u0435\u0442 \u0434\u0430\u043d\u043d\u044b\u0445", 
+"model_name": "Students", 
+"model_editing": "\u043d\u0435\u0442 \u0434\u0430\u043d\u043d\u044b\u0445"}}, 
+
+{"pk": 2, "model": "st_and_gr.info_about_models", 
+"fields": 
+{"model_create": "\u043d\u0435\u0442 \u0434\u0430\u043d\u043d\u044b\u0445",
+ "model_delete": "\u043d\u0435\u0442 \u0434\u0430\u043d\u043d\u044b\u0445",
+"model_name": "Groups", 
+"model_editing": "\u043d\u0435\u0442 \u0434\u0430\u043d\u043d\u044b\u0445"}},
+
+{"pk": 1, "model": "st_and_gr.info_about_models", 
+"fields":{"model_name": "Students",
+"model_create": "\u043d\u0435\u0442 \u0434\u0430\u043d\u043d\u044b\u0445", 
+"model_delete": "\u043d\u0435\u0442 \u0434\u0430\u043d\u043d\u044b\u0445",  
+"model_editing": "\u043d\u0435\u0442 \u0434\u0430\u043d\u043d\u044b\u0445"}}, 
+
+{"pk": 2, "model": "st_and_gr.info_about_models", 
+"fields":{"model_name": "Groups",
+"model_create": "\u043d\u0435\u0442 \u0434\u0430\u043d\u043d\u044b\u0445",
+ "model_delete": "\u043d\u0435\u0442 \u0434\u0430\u043d\u043d\u044b\u0445", 
+"model_editing": "\u043d\u0435\u0442 \u0434\u0430\u043d\u043d\u044b\u0445"}} 
+]

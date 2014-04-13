@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Редактировать группу
+{% endblock %}
+
+{% block content %}
+<div class=" row">
+<!----------------------------------------->
+<div class="span7">
+<br>
+<br>
+<h1>Редактировать группу  "{{group.group_name }}"</h1>
+
+<!-------------------------->
+<div class="pad_center">
+
+{% if form.errors %}
+<p style="color: red;">
+Пожалуйста, исправьте ошибки  
+</p>
+{% endif %}
+
+<form action="" method="post">  {% csrf_token %}
+
+<div style="padding-right:110px">
+<table>
+{{ form.as_table }}
+</table>
+</div>
+<div class="btn_position"> <input type="submit"  class="btn btn-primary" value="Сохранить изменения"></div>
+</form>
+ 
+</div>
+
+<!-------------------------->
+</div>
+<!----------------------------------------->
+<div class="span5">
+<div align="left" style="padding-left:20%">
+<br>
+<br>
+<br>
+{% if group_students.count > 0 %}
+<h4>Список студентов этой группы:</h4>
+
+<h5>
+<ul>
+{% for student in group_students %}
+
+<li> {{student.full_name}}  </li>
+
+{% endfor %}
+</ul>
+</h5>
+ 
+</div>
+{%else%}
+<!--------------------------------->
+<div align="left" style="padding-left:20%">
+<br>
+
+<h4>
+В этой группе нет студентов
+</h4>
+ </div>
+<!--------------------------------->
+{% endif %}
+
+</div>
+<!----------------------------->
+</div>
+{% endblock %}

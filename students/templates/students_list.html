@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Список  студентов из группы "{{ group.group_name }}"
+{% endblock %}
+
+{% block content %}
+<br>
+<br>
+<h1>Список студентов из группы "{{ group.group_name }}" </h1>
+               
+<!-------------------------->
+<div class="pad_center">
+<table class="table" align="center">
+<tr>
+<td>Полное имя</td>
+<td>Дата рождения</td>
+<td>номер студ. билета</td>
+<td> </td>
+</tr>
+
+<tr>
+{% for student in students_list %}
+
+<td>
+<a href="{% url 'now_used_headman' pk=student.id pk_group_edit=group.id %}">{{student.full_name}} </a>
+</td>
+
+<td>{{student.date_of_birth}} </td>
+<td>{{student.student_id_number}} </td>
+
+<td>
+<!-------------------------------->
+{%if students_list.count > 1 and student.id == headman_id %}
+<input type="button"
+name="Староста" 
+class="btn btn-warning btn-small"
+onclick="location.href='{% url 'now_used_group' pk=group.id %}'"
+value="Староста"> 
+{% endif %}
+<!---------->
+{%if students_list.count > 1 and student.id != headman_id %}
+<div style=" padding-left: 3px">
+<input type="button"
+name="Удалить" 
+class="btn btn-inverse btn-small"
+onclick="location.href='{% url 'del_student' pk_student=student.id pk_group_del=group.id %}'"
+value="Удалить">
+</div>
+{%endif%}
+<!---------->
+{%if students_list.count == 1 and group_all.count != 1 %}
+<input type="button"
+name="Удалить старосту и всю группу" 
+class="btn btn-warning btn-small"
+onclick="location.href='{% url 'del_group' pk_group=group.id %}'"
+value="Удалить старосту и всю группу">
+{%endif%}
+<!---------->
+{%if students_list.count == 1 and group_all.count == 1 %}
+Староста
+{%endif%}
+<!-------------------------------->
+</td>
+
+</tr>
+{% endfor %}
+</table>
+<!-------------------------->
+<br>
+<div align="left" >
+<h5>
+
+{%if students_list.count > 1 %}
+Группа без старосты существовать не может.<br>
+Переопределите старосту группы перед тем,<br>
+как удалить его из картотеки студентов <br>
+или отредактировать информацию о нем.  
+{%endif%}
+<!---------->
+{%if students_list.count == 1 and group_all.count != 1  %}
+В этой группе всего один человек - староста.<br>
+Возможно удалить его из картотеки <br>
+вместе со всей группой. 
+{%endif%}
+<!---------->
+{%if students_list.count == 1 and group_all.count == 1 %}
+В этой группе всего один человек - староста.<br>
+Кроме того, это единственная группа в картотеке.<br>
+Поэтому невозможно удалить этого студента,<br>
+поскольку в ином случае картотека будет полностью закрыта.  
+{%endif%}
+</h5>
+</div>
+<!-------------------------->
+</div>
+
+{% endblock %}

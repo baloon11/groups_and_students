@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load edit_object %} 
+
+
+{% block title %}
+Список некоторых настроек проекта
+{% endblock %}
+
+{% block content %}
+
+<div align="center">
+<br>
+<br>
+<h3> Список некоторых настроек проекта</h3>
+<!------------------>
+<div class="pad_center">
+
+DEBUG: {{ MY_SETTINGS.DEBUG }}
+<br>
+<br>
+TIME_ZONE:{{ MY_SETTINGS.TIME_ZONE }} 
+<br>
+<br>
+DATABASES: {{ MY_SETTINGS.DATABASES }} 
+<br>
+<br>
+
+STATIC_ROOT:{{ MY_SETTINGS.STATIC_ROOT }} 
+
+</div>
+
+<br>
+<br> 
+<h5>Работа своего шаблонного тега "edit":</h5> 
+
+Сcылка на редактирование объекта Students: {% edit obj='Students' %}
+<br>
+<br>                      
+Сcылка на редактирование экземпляра класса (модели) Students: {% edit obj='Students' obj_id=2 %}
+<br>
+<br>
+Сcылка на редактирование текущего пользователя (дополнительно  передаем его id):  {% edit user=request.user obj_id=1 %}
+<br>
+<br>
+Сcылка на редактирование текущего пользователя (id не передаем):{% edit user=request.user %}
+
+<br>
+<br>
+Ошибка в использовании тега - задано больше одного объекта для формирования ссылки:  {% edit user=request.user obj='Students' %}
+
+<br>
+<br>
+Ошибка в использовании тега - задано слишком много параметров : {% edit user=request.user obj='Students' obj_id=1 %}
+
+</div>                    
+
+
+{% endblock %}
