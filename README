@@ -36,3 +36,6 @@
     Django.TestFramework - написать Django-TestCase(unittest), который логинится на сайт, добавляет группу и студента в созданную группу.
 
 
+С работой этого проекта вы также можете ознакомится: http://cardindex.pythonanywhere.com/
+
+
